@@ -1,0 +1,259 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+/* ─────────────────────────  DESIGN TOKENS  ───────────────────────── */
+@theme {
+  --color-deep: #3d52a0; /* Primary deep indigo */
+  --color-peri: #7091e6; /* Periwinkle blue */
+  --color-muted: #8697c4; /* Muted blue */
+  --color-mist: #adbdda; /* Soft blue grey */
+  --color-lav: #ede8f5; /* Lavender white */
+  --color-paper: #f8f6fc; /* Near-white card surface (never pure white) */
+  --color-ink: #161b3f; /* Text — darkened indigo */
+  --color-night: #10142f; /* Deepest sections */
+
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --breakpoint-xs: 25rem;
+  --breakpoint-3xl: 112rem;
+}
+
+:root {
+  --header-h: 4.5rem;
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  color-scheme: light;
+}
+
+/* ─────────────────────────  BASE  ───────────────────────── */
+@layer base {
+  html {
+    /* Desktop density: the whole rem-based system scales down so every
+       section fits a laptop/desktop screen (≈ the feel of 67–75% zoom). */
+    font-size: 16px;
+    overflow-x: clip;
+    background: var(--color-lav);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    font-family: var(--font-sans);
+    overflow-x: clip;
+    min-height: 100svh;
+  }
+  ::selection {
+    background: var(--color-deep);
+    color: var(--color-lav);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-peri);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  img, svg, canvas {
+    display: block;
+  }
+  button {
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 1024px) {
+  html { font-size: 12px; }
+}
+@media (min-width: 1680px) {
+  html { font-size: 13px; }
+}
+@media (min-width: 2200px) {
+  html { font-size: 15px; }
+}
+
+/* ─────────────────────────  UTILITIES  ───────────────────────── */
+@utility container-x {
+  width: 100%;
+  max-width: 132rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@utility display-xl {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  font-size: clamp(2.6rem, 5.6vw, 11rem);
+}
+
+@utility display-lg {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  font-size: clamp(2.4rem, 4.4vw, 7.5rem);
+}
+
+@utility display-md {
+  font-family: var(--font-display);
+  font-weight: 350;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-size: clamp(2rem, 3.1vw, 5rem);
+}
+
+@utility hairline {
+  border-color: color-mix(in oklab, var(--color-ink) 12%, transparent);
+}
+
+@utility grain {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@utility mask-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+@utility grid-lines {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-deep) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-deep) 7%, transparent) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+/* Marquee */
+@keyframes marquee {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+@utility animate-marquee {
+  animation: marquee var(--marquee-duration, 38s) linear infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-peri) 55%, transparent); }
+  50% { box-shadow: 0 0 0 6px transparent; }
+}
+@utility animate-pulse-dot {
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -10px, 0); }
+}
+@utility animate-float {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+/* ─────────────────────────  LOADER (first-visit only)  ───────────────────────── */
+html[data-intro="seen"] [data-loader] {
+  display: none !important;
+}
+html:not([data-intro="seen"]) body {
+  overflow: hidden;
+}
+html[data-intro="done"] body {
+  overflow: visible;
+}
+
+/* Prose for legal pages */
+.prose-legal h2 {
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-top: 3rem;
+  margin-bottom: 0.9rem;
+  scroll-margin-top: 7rem;
+}
+.prose-legal p,
+.prose-legal li {
+  color: color-mix(in oklab, var(--color-ink) 78%, transparent);
+  line-height: 1.75;
+}
+.prose-legal p + p {
+  margin-top: 0.9rem;
+}
+.prose-legal ul {
+  margin-top: 0.75rem;
+  padding-left: 1.2rem;
+  list-style: square;
+}
+.prose-legal li + li {
+  margin-top: 0.35rem;
+}
+.prose-legal li::marker {
+  color: var(--color-peri);
+}
+.prose-legal a {
+  color: var(--color-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-legal strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* No side scrollbar — the page fills the screen; a slim top progress line replaces it */
+html {
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Rounded, inset "panel" sections */
+@utility panel {
+  margin-inline: clamp(0.5rem, 1.2vw, 1rem);
+  border-radius: clamp(1.5rem, 3vw, 2.5rem);
+  overflow: hidden;
+}
