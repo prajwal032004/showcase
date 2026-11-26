@@ -12,7 +12,7 @@ import { ButtonLink } from "@/components/ui/Button";
 export const metadata: Metadata = pageMetadata({
   title: "About — Meet the Founders",
   description:
-    `Meet the founders of ${site.name}, an independent web design studio in India. Work directly with the people who design and build your website, with no middlemen.`,
+    "Meet the founders of an independent web design studio in India. Work directly with the people who design and build your website — no middlemen.",
   path: "/about",
 });
 

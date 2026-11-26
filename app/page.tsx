@@ -12,12 +12,12 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   ...pageMetadata({
-    title: `${site.name} — Website Design & Development Studio`,
+    title: `${site.name} — Web Design & Development Studio`,
     description:
-      "Independent web design & development studio crafting custom, fast, responsive websites that make brands impossible to ignore. 3D, motion and SEO done right. From ₹15,000.",
+    "Independent web design & development studio crafting custom, fast, responsive websites that make brands impossible to ignore. From ₹15,000.",
     path: "/",
   }),
-  title: { absolute: `${site.name} — Website Design & Development Studio` },
+  title: { absolute: `${site.name} — Web Design & Development Studio` },
 };
 
 export default function HomePage() {

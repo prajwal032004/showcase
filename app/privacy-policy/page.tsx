@@ -7,7 +7,7 @@ import { LegalLayout } from "@/components/ui/LegalLayout";
 export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
   description:
-    `How ${site.name} handles your information: no tracking cookies, no stored form submissions, and an assistant that runs privately in your browser.`,
+    "How we handle your information: no tracking cookies, no stored form submissions, and an assistant that runs privately in your browser.",
   path: "/privacy-policy",
 });
 

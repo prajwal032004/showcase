@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const p = getProject(slug);
   if (!p) return {};
   return pageMetadata({
-    title: `${p.title} — ${p.type}${p.concept ? " Concept" : " Case Study"}`,
+    title: `${p.title} — ${p.concept ? "Concept" : "Case Study"}`,
     description: `${p.summary} ${p.concept ? "A design concept" : "A live project"} by Forma Studio: ${p.features.slice(0, 3).join(", ").toLowerCase()}.`.slice(0, 160),
     path: `/showcase/${p.slug}`,
   });

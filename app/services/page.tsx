@@ -18,7 +18,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 export const metadata: Metadata = pageMetadata({
   title: "Web Design Services & Pricing — From ₹15,000",
   description:
-    "Custom website design, development, landing pages, e-commerce and website revamps. See the itemised ₹15,000 starter package, our 7-step process and FAQs.",
+    "Website design, development, landing pages, e-commerce and revamps. See the itemised ₹15,000 starter package, our 7-step process and FAQs.",
   path: "/services",
 });
 

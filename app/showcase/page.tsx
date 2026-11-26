@@ -8,7 +8,7 @@ import { FinalCTA } from "@/components/home/FinalCTA";
 export const metadata: Metadata = pageMetadata({
   title: "Showcase — Live Websites & Design Concepts",
   description:
-    "Browse live client websites and design concepts across business, SaaS, e-commerce, portfolio and landing pages. See desktop and mobile previews of each project.",
+    "Live client websites and design concepts across business, SaaS, e-commerce and portfolios — with desktop and mobile previews of every project.",
   path: "/showcase",
 });
 

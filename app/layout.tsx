@@ -32,7 +32,7 @@ const mono = Geist_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Website Design & Development Studio`,
+    default: `${site.name} — Web Design & Development Studio`,
     template: `%s — ${site.name}`,
   },
   description: site.description,
@@ -46,12 +46,12 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: site.locale,
     url: site.url,
-    title: `${site.name} — Website Design & Development Studio`,
+    title: `${site.name} — Web Design & Development Studio`,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Website Design & Development Studio`,
+    title: `${site.name} — Web Design & Development Studio`,
     description: site.description,
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },

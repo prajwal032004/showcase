@@ -12,8 +12,8 @@ export const site = {
   tagline: "Independent digital studio",
   description:
     "Forma Studio is an independent web design & development studio crafting custom, high-performance websites that help brands stand out, build trust and turn visitors into customers.",
-  /** Set NEXT_PUBLIC_SITE_URL in production */
-  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://www.formastudio.example").replace(/\/$/, ""),
+  /** Resolved in next.config.ts (NEXT_PUBLIC_SITE_URL → Vercel domain → localhost) */
+  url: (process.env.SITE_URL_RESOLVED || process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, ""),
   /** Set NEXT_PUBLIC_STUDIO_EMAIL — the contact form opens Gmail addressed to this inbox */
   email: process.env.NEXT_PUBLIC_STUDIO_EMAIL || "hello@formastudio.example",
   phone: "", // e.g. "+91 00000 00000" — leave empty to hide

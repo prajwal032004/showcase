@@ -10,7 +10,7 @@ import { ProjectPlanner } from "@/components/ai/ProjectPlanner";
 export const metadata: Metadata = pageMetadata({
   title: "Contact — Start Your Website Project",
   description:
-    `Describe your idea, get an instant AI estimate and send a ready-made project inquiry in minutes. Websites from ${pricing.startingPriceLabel}, replies within a couple of working days.`,
+    "Describe your website idea, get an instant AI estimate and send a ready-made project inquiry in minutes. Websites from ₹15,000.",
   path: "/contact",
 });
 

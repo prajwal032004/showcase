@@ -18,22 +18,40 @@ export const keywords = [
 
 type PageSeo = { title: string; description: string; path: string; keywords?: string[]; noIndex?: boolean };
 
+/** Trim to a word boundary so previews never cut mid-word. */
+function clamp(text: string, max: number) {
+  if (text.length <= max) return text;
+  const firstSentence = text.split(/(?<=[.!?])\s/)[0];
+  if (firstSentence.length <= max) return firstSentence;
+  return text.slice(0, max - 1).replace(/\s+\S*$/, "") + "…";
+}
+
+/** Social title: add the brand only when it still fits the ~60-character sweet spot. */
+function socialTitle(title: string) {
+  if (title.includes(site.name)) return clamp(title, 60);
+  const branded = `${title} | ${site.name}`;
+  return branded.length <= 60 ? branded : clamp(title, 60);
+}
+
 export function pageMetadata({ title, description, path, keywords: kw, noIndex }: PageSeo): Metadata {
   const url = absoluteUrl(path);
+  const metaDescription = clamp(description, 155); // Google ≈ 150–160
+  const shareDescription = clamp(description, 125); // social cards ≈ 125
+  const shareTitle = socialTitle(title);
   return {
     title,
-    description,
+    description: metaDescription,
     keywords: kw ?? keywords,
     alternates: { canonical: url },
     openGraph: {
-      title: `${title} — ${site.name}`,
-      description,
+      title: shareTitle,
+      description: shareDescription,
       url,
       siteName: site.name,
       locale: site.locale,
       type: "website",
     },
-    twitter: { card: "summary_large_image", title: `${title} — ${site.name}`, description },
+    twitter: { card: "summary_large_image", title: shareTitle, description: shareDescription },
     robots: noIndex ? { index: false, follow: true } : undefined,
   };
 }
