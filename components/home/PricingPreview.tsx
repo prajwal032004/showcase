@@ -7,7 +7,7 @@ import { EstimateButton } from "@/components/ai/EstimateButton";
 
 export function PricingPreview() {
   return (
-    <section aria-labelledby="pricing-title" className="relative overflow-hidden bg-lav py-24 sm:py-32">
+    <section id="pricing" aria-labelledby="pricing-title" className="relative overflow-hidden bg-lav py-24 sm:py-32">
       <div className="container-x">
         <div className="relative overflow-hidden rounded-[2rem] bg-paper ring-1 ring-ink/[0.06]">
           <div className="grid-lines pointer-events-none absolute inset-0 opacity-50 [mask-image:linear-gradient(90deg,transparent,black)]" aria-hidden />

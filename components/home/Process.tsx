@@ -71,7 +71,7 @@ export function Process() {
   }, []);
 
   return (
-    <section aria-labelledby="process-title" className="relative bg-lav py-24 sm:py-32">
+    <section id="process" aria-labelledby="process-title" className="relative bg-lav py-24 sm:py-32">
       <div className="container-x grid gap-14 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-28">

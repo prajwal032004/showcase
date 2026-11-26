@@ -58,7 +58,7 @@ export function ChatLauncher() {
   return (
     <>
       {mounted && <ChatPanel open={open} onClose={() => setOpen(false)} />}
-      <div className="fixed bottom-4 right-4 z-[95] flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
+      <div className="fixed bottom-4 right-4 z-[95] flex flex-col items-end gap-3 sm:bottom-6 sm:right-6 [body:has(#mobile-menu)_&]:hidden">
         <AnimatePresence>
           {hint && !open && (
             <motion.button

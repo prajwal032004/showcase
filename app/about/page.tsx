@@ -43,7 +43,7 @@ export default function AboutPage() {
         intro={`${site.name} is an independent website design and development team. We help businesses establish a better digital presence with custom websites that look distinctive, load fast and make it easy for the right people to say yes.`}
       />
 
-      <section aria-labelledby="story-title" className="bg-lav pb-24 sm:pb-32">
+      <section id="story" aria-labelledby="story-title" className="bg-lav pb-24 sm:pb-32">
         <div className="container-x grid gap-10 border-t hairline pt-16 lg:grid-cols-12">
           <div className="lg:col-span-3">
             <SectionLabel index="01">Our story</SectionLabel>
@@ -62,7 +62,7 @@ export default function AboutPage() {
       </section>
 
       {/* Founders */}
-      <section aria-labelledby="founders-title" className="bg-paper py-24 sm:py-32 lg:flex lg:min-h-[100svh] lg:items-center lg:py-16">
+      <section id="founders" aria-labelledby="founders-title" className="bg-paper py-24 sm:py-32 lg:flex lg:min-h-[100svh] lg:items-center lg:py-16">
         <div className="container-x grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-10">
           <div className="lg:col-span-4">
             <SectionLabel index="02">The founders</SectionLabel>
@@ -124,7 +124,7 @@ export default function AboutPage() {
       </section>
 
       {/* Philosophy */}
-      <section aria-labelledby="philosophy-title" className="bg-lav py-24 sm:py-32">
+      <section id="philosophy" aria-labelledby="philosophy-title" className="bg-lav py-24 sm:py-32">
         <div className="container-x">
           <SectionLabel index="03">Our philosophy</SectionLabel>
           <SplitReveal id="philosophy-title" as="h2" text="What we believe about the web." className="display-lg mt-6 max-w-4xl" />
@@ -149,7 +149,7 @@ export default function AboutPage() {
       />
 
       {/* Different */}
-      <section aria-labelledby="different-title" className="panel my-3 bg-night py-24 text-lav sm:py-32">
+      <section id="different" aria-labelledby="different-title" className="panel my-3 bg-night py-24 text-lav sm:py-32">
         <div className="container-x grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <SectionLabel index="04" light>

@@ -4,7 +4,7 @@ import { SplitReveal, Reveal } from "@/components/motion/Reveal";
 
 export function WhyUs() {
   return (
-    <section aria-labelledby="why-title" className="grain panel relative bg-deep py-24 text-lav sm:py-32">
+    <section id="why-us" aria-labelledby="why-title" className="grain panel relative bg-deep py-24 text-lav sm:py-32">
       <div className="pointer-events-none absolute -right-40 -top-40 size-[40rem] rounded-full bg-peri/30 blur-[120px]" aria-hidden />
       <div className="container-x relative grid gap-14 lg:grid-cols-12">
         <div className="lg:col-span-5">

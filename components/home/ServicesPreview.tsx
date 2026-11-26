@@ -8,7 +8,7 @@ import { ButtonLink } from "@/components/ui/Button";
 
 export function ServicesPreview() {
   return (
-    <section aria-labelledby="services-title" className="relative bg-lav py-24 sm:py-32">
+    <section id="what-we-do" aria-labelledby="services-title" className="relative bg-lav py-24 sm:py-32">
       <div className="container-x">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>

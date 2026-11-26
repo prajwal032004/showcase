@@ -14,6 +14,11 @@ export function ShowcaseGrid() {
   const router = useRouter();
   const initial = (params.get("category") as Category) || "All";
   const [active, setActive] = useState<Category>(categories.includes(initial) ? initial : "All");
+  // Keep in sync when the category changes via the navbar menu
+  useEffect(() => {
+    const c = (params.get("category") as Category) || "All";
+    if (categories.includes(c)) setActive(c);
+  }, [params]);
 
   const counts = useMemo(() => {
     const c: Record<string, number> = { All: projects.length };
