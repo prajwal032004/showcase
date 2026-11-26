@@ -26,7 +26,10 @@ export function Footer() {
               <LogoMark className="size-10" mono />
               <Wordmark className="text-2xl" />
             </Link>
-            <p className="mt-6 max-w-sm text-lav/60">
+            <p className="mt-8 font-display text-[clamp(1.6rem,2.8vw,2.4rem)] font-light leading-[1.05] tracking-[-0.035em] text-lav">
+              Dream it. <span className="font-extralight italic text-peri">We build it.</span>
+            </p>
+            <p className="mt-4 max-w-sm text-lav/60">
               An independent studio designing and building thoughtful, high-performance websites.
             </p>
             <button

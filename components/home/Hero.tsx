@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { useRef, useState } from "react";
 import { ArrowDown } from "lucide-react";
 import { gsap } from "@/lib/gsap";
-import { useIsoLayoutEffect } from "@/lib/hooks";
+import { useIsoLayoutEffect, useMediaQuery } from "@/lib/hooks";
 import { hero, site } from "@/lib/site";
 import { ButtonLink } from "@/components/ui/Button";
 import { useIntro, useSmoothScroll } from "@/components/layout/Providers";
@@ -17,6 +17,8 @@ export function Hero() {
   const section = useRef<HTMLElement>(null);
   const content = useRef<HTMLDivElement>(null);
   const [webglFailed, setWebglFailed] = useState(false);
+  // The 3D world is desktop-only: on phones/tablets the hero is pure typography (and the Three.js chunk never loads).
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   // Text entrance once the intro finishes
   useIsoLayoutEffect(() => {
@@ -37,7 +39,7 @@ export function Hero() {
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        const tl = gsap.timeline({ delay: 0.15 });
+        const tl = gsap.timeline({ delay: 0.3 }); // lands as the curtain clears
         tl.to("[data-hero-line]", { yPercent: 0, rotate: 0, duration: 1.4, ease: "expo.out", stagger: 0.09 })
           .to("[data-hero-fade]", { y: 0, opacity: 1, duration: 1.1, ease: "expo.out", stagger: 0.08 }, "-=1.0");
 
@@ -60,9 +62,11 @@ export function Hero() {
       className="relative isolate min-h-[100svh] overflow-hidden bg-[radial-gradient(120%_80%_at_70%_100%,#dfe2f6_0%,#ede8f5_55%,#f3f0f9_100%)]"
     >
       {/* 3D world */}
-      <div className="absolute inset-x-0 bottom-0 top-[50%] -z-10 sm:top-[42%] lg:inset-0">
-        {webglFailed ? <SceneFallback /> : <HeroScene ready={ready} triggerRef={section} onFail={() => setWebglFailed(true)} brand={site.wordmark} />}
-      </div>
+      {isDesktop && (
+        <div className="absolute inset-0 -z-10 hidden lg:block">
+          {webglFailed ? <SceneFallback /> : <HeroScene ready={ready} triggerRef={section} onFail={() => setWebglFailed(true)} brand={site.wordmark} />}
+        </div>
+      )}
       {/* Legibility veil */}
       <div className="pointer-events-none absolute inset-0 -z-[5] bg-[linear-gradient(180deg,rgba(237,232,245,1)_0%,rgba(237,232,245,.9)_48%,rgba(237,232,245,0)_62%)] lg:bg-[linear-gradient(100deg,rgba(237,232,245,.96)_0%,rgba(237,232,245,.78)_38%,rgba(237,232,245,0)_64%)]" />
 
@@ -72,7 +76,9 @@ export function Hero() {
             <span className="relative grid size-5 place-items-center rounded-full bg-deep/10">
               <span className="animate-pulse-dot size-1.5 rounded-full bg-deep" />
             </span>
-            {hero.status}
+            <span className="font-medium text-ink">{site.tagline}</span>
+            <span className="hidden text-ink/30 sm:inline">/</span>
+            <span className="hidden sm:inline">{site.availability}</span>
           </div>
 
           <h1 id="hero-title" className="display-xl text-[clamp(2.3rem,5.1vw,9rem)]! uppercase text-ink" aria-label={hero.headline.join(" ")}>
@@ -106,7 +112,6 @@ export function Hero() {
           </div>
         </div>
 
-        <div aria-hidden className="h-[46svh] shrink-0 sm:h-[40svh] lg:hidden" />
         <div data-hero-fade className="mt-auto flex items-end justify-between pt-6 lg:pt-14">
           <button
             type="button"

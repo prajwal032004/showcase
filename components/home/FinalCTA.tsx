@@ -51,7 +51,7 @@ export function FinalCTA({
         <div data-block className="absolute right-[18%] top-40 hidden size-20 rounded-full bg-peri/80 md:block" />
       </div>
       <div className="container-x relative flex flex-col items-center text-center">
-        <p className="eyebrow text-lav/50">{site.availability}</p>
+        <p className="eyebrow text-lav/50">{site.craft}</p>
         <SplitReveal id="cta-title" as="h2" text={title} className="display-lg mt-6 max-w-5xl" />
         <Link
           ref={btn}

@@ -9,7 +9,11 @@ export const site = {
   /** Used in the logo wordmark */
   wordmark: "FORMA",
   wordmarkSuffix: "STUDIO",
-  tagline: "Independent digital studio",
+  /** Primary brand line — loader, hero, footer */
+  tagline: "Dream It. We Build It.",
+  /** Supporting lines */
+  promise: "What We Promise, We Deliver.",
+  craft: "Your Vision. Our Craft.",
   description:
     "Forma Studio is an independent web design & development studio crafting custom, high-performance websites that help brands stand out, build trust and turn visitors into customers.",
   /** Resolved in next.config.ts (NEXT_PUBLIC_SITE_URL → Vercel domain → localhost) */

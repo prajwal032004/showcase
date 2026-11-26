@@ -26,6 +26,18 @@ export function WhyUs() {
           ))}
         </Reveal>
       </div>
+      <div className="container-x relative mt-20 sm:mt-28">
+        <Reveal className="flex flex-col gap-6 border-t border-lav/15 pt-10 sm:flex-row sm:items-end sm:justify-between">
+          <p className="font-display text-[clamp(2.2rem,5.6vw,6.5rem)] font-light leading-[0.95] tracking-[-0.045em]">
+            What we promise,
+            <br />
+            we <span className="font-extralight italic text-peri">deliver.</span>
+          </p>
+          <p className="max-w-xs text-[0.95rem] leading-relaxed text-lav/65 sm:pb-3">
+            Clear scope, honest timelines and a finished site that matches what we agreed. No surprises.
+          </p>
+        </Reveal>
+      </div>
     </section>
   );
 }
