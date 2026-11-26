@@ -16,9 +16,9 @@ import { FinalCTA } from "@/components/home/FinalCTA";
 import { JsonLd } from "@/components/ui/JsonLd";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Services & Pricing",
+  title: "Web Design Services & Pricing — From ₹15,000",
   description:
-    "Website design, website development, landing pages, business websites, e-commerce and website revamps. Custom, responsive websites starting at ₹15,000 — see what's included and how we work.",
+    "Custom website design, development, landing pages, e-commerce and website revamps. See the itemised ₹15,000 starter package, our 7-step process and FAQs.",
   path: "/services",
 });
 

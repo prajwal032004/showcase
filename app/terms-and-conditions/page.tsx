@@ -6,7 +6,8 @@ import { LegalLayout } from "@/components/ui/LegalLayout";
 
 export const metadata: Metadata = pageMetadata({
   title: "Terms & Conditions",
-  description: `Terms that apply to website design and development services provided by ${site.name}.`,
+  description:
+    `How ${site.name} works with clients: scope, pricing, payments, revisions, ownership and timelines, written in plain, readable language.`,
   path: "/terms-and-conditions",
 });
 

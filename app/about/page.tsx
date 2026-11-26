@@ -10,8 +10,9 @@ import { ArrowUpRight } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
 
 export const metadata: Metadata = pageMetadata({
-  title: "About",
-  description: `Meet ${site.name} — an independent website design and development team helping businesses build a better digital presence through custom, thoughtful websites.`,
+  title: "About — Meet the Founders",
+  description:
+    `Meet the founders of ${site.name}, an independent web design studio in India. Work directly with the people who design and build your website, with no middlemen.`,
   path: "/about",
 });
 

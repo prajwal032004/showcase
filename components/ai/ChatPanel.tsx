@@ -233,7 +233,7 @@ export default function ChatPanel({ open, onClose }: { open: boolean; onClose: (
           style={{ transformOrigin: "bottom right" }}
           className={cn(
             "fixed inset-x-2 bottom-20 top-20 z-[96] flex flex-col overflow-hidden rounded-[1.75rem] bg-lav shadow-[0_40px_100px_-30px_rgba(16,20,47,.65)] ring-1 ring-ink/[0.08] transition-[width,height] duration-500 ease-[var(--ease-out-expo)] sm:inset-auto sm:bottom-24 sm:right-6",
-            expanded ? "sm:h-[calc(100svh-8rem)] sm:w-[min(820px,calc(100vw-3rem))]" : "sm:h-[min(640px,calc(100svh-8rem))] sm:w-[400px]"
+            expanded ? "sm:h-[calc(100svh-13rem)] sm:w-[min(820px,calc(100vw-3rem))]" : "sm:h-[min(640px,calc(100svh-13rem))] sm:w-[400px]"
           )}
         >
           {/* Header */}

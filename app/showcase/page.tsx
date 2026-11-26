@@ -6,9 +6,9 @@ import { ShowcaseGrid } from "@/components/showcase/ShowcaseGrid";
 import { FinalCTA } from "@/components/home/FinalCTA";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Showcase",
+  title: "Showcase — Live Websites & Design Concepts",
   description:
-    "Explore website concepts and designs — e-commerce storefronts, SaaS landing pages, business websites, portfolios and more — that define our approach to modern web design.",
+    "Browse live client websites and design concepts across business, SaaS, e-commerce, portfolio and landing pages. See desktop and mobile previews of each project.",
   path: "/showcase",
 });
 

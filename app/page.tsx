@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   ...pageMetadata({
     title: `${site.name} — Website Design & Development Studio`,
     description:
-      "Independent web design and development studio crafting custom, responsive, high-performance websites, landing pages and e-commerce experiences. Websites from ₹15,000.",
+      "Independent web design & development studio crafting custom, fast, responsive websites that make brands impossible to ignore. 3D, motion and SEO done right. From ₹15,000.",
     path: "/",
   }),
   title: { absolute: `${site.name} — Website Design & Development Studio` },

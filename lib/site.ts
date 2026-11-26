@@ -11,7 +11,7 @@ export const site = {
   wordmarkSuffix: "STUDIO",
   tagline: "Independent digital studio",
   description:
-    "Forma Studio is an independent web design and development studio crafting thoughtful, high-performance websites for brands that want to stand out, build trust and convert.",
+    "Forma Studio is an independent web design & development studio crafting custom, high-performance websites that help brands stand out, build trust and turn visitors into customers.",
   /** Set NEXT_PUBLIC_SITE_URL in production */
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://www.formastudio.example").replace(/\/$/, ""),
   /** Set NEXT_PUBLIC_STUDIO_EMAIL — the contact form opens Gmail addressed to this inbox */
